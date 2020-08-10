@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/affiliate.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Login</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <p class="logo-paragraph" href="./views/affiliate.html" >KIGENNI </p>
+            </div>
+
+            <div class="auth-container">
+                <ul>
+                    <li><a href="../views/login.html">Login</a></li>
+                    <li><a href="../views/register.html">register</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="section-form">
+        <h2>Jion the kegenni Affiliate</h2>
+        <form action="../views/dashboard.html" method="POST" autocomplete="on">
+            <label>Email</label>
+            <input type="email" name="email" id="email" required>
+
+            <label>Password</label>
+            <input type="password" name="password" id="password" required>
+
+            <p>
+                <button type="submit" >Sign in</button>
+            </p>
+        </form>
+        <p class="haves">Don't have an account?<span><a href="../views/register.html">Register</a></span></p>
+    </section>
+</body>
+</html>

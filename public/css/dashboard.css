@@ -1,0 +1,81 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.greatings {
+    font-size: 25px;
+    margin: 4rem;
+}
+
+.aff-code {
+    margin: 0 13rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.aff-code h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.aff-code span {
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+.dashboard-1 {
+    display: flex;
+    margin: 5rem;
+}
+
+.dashboard-box {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.dashboard-box i {
+    font-size: 100px;
+    text-align: center;
+    margin-bottom: 5px;
+
+    text-transform: uppercase;
+}
+
+.number {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    text-transform: uppercase;
+}
+
+.dashboard-box h4 {
+    font-size: 20px;
+    margin-top: 18px;
+    text-align: center;
+
+    text-align: center;
+}
+
+.request-pay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.btn-pay {
+    text-decoration: none;
+    color: white;
+    margin: 2rem;
+    list-style-type: none;
+    background-color: #3d9be9;
+    padding: 10px 16px;
+    text-transform: uppercase;
+    font-size: 20px;
+}

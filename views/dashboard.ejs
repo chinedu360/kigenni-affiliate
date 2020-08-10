@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head.ejs') %>
+
+
+    <link rel="stylesheet" href="/css/dashboard.css">
+    
+</head>
+<body>
+    <!-- THE STYLES FOR THE HEADER IS IN AFFILIATE.CSS -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo-container">
+                <p class="logo-paragraph" href="#" >KIGENNI </p>
+            </div>
+
+            <div class="auth-container">
+                
+                <ul>
+                    <li><a href="/">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="dashboard">
+        <div class="greatings">
+            <p>Hello, <span><%= name %>!</span></p>
+        </div>
+
+        <div class="aff-code">
+            <h2>your kigenni affiliate code</h2><span>ID: 12ug-nwv3-35bv</span>
+        </div>
+    </section>
+
+
+    <section class="dashboard-1">
+        <div class="dashboard-box">
+            <i class="fas fa-chart-line "></i>
+            <span  class="number">0</span>
+           <h4>daily report</h4>
+        </div>
+        <div class="dashboard-box">
+            <i class="fas fa-money-bill"></i>
+            <span class="number">&#x20A6; 0</span>
+            <h4>conversion</h4>
+        </div>
+    </section>
+
+    <section class="request-pay">
+        <a class="btn-pay" href="#">Request Payment</a>
+    </section>
+</body>
+</html> 
