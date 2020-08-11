@@ -1,11 +1,22 @@
 const PORT = process.env.PORT || 3000;
 const http = require('http');
 const path = require('path');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
+
+const User = require('./models/user')
 
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const MONGO_URI = 'mongodb://kigenni-aff:kigenni-7218@ds149875.mlab.com:49875/kigenni-aff'
+
 const app = express();
+const store = new MongoDBStore({
+    uri: MONGO_URI, 
+    collection: 'sessions'
+});
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -14,14 +25,32 @@ const dashboardRoutes = require('./routes/dashboard')
 const affiliateLandingRoutes = require('./routes/affiliate-landing')
 const authRoutes = require('./routes/auth')
 
+
 app.use(bodyParser.urlencoded({ extended: false}));
 //Here we render the css files staticaly
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(session ({
+    secret: 'my secret',
+    resave: false,
+    saveUninitialized: false,
+    store: store
+}))
 
 app.use(dashboardRoutes);
 app.use(affiliateLandingRoutes);
 app.use(authRoutes)
 
-const server = http.createServer(app);
+mongoose.connect(MONGO_URI, { 
+        useNewUrlParser: true, 
+        useUnifiedTopology: true 
+    })
+    .then(result => {
 
-server.listen(PORT);
+    const server = http.createServer(app);
+    server.listen(PORT);
+
+    console.log("connected to the DB")
+}).catch(err => {
+    console.log(err);
+})
+
