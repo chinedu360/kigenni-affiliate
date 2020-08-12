@@ -4,6 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
+const csrf = require('csurf');
 
 const User = require('./models/user')
 
@@ -17,6 +18,8 @@ const store = new MongoDBStore({
     uri: MONGO_URI, 
     collection: 'sessions'
 });
+
+const csrfProtection = csrf();
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -35,6 +38,9 @@ app.use(session ({
     saveUninitialized: false,
     store: store
 }))
+
+//initalialse csrf after session is crseated bcos it would use it
+/* app.use(csrfProtection); */
 
 app.use(dashboardRoutes);
 app.use(affiliateLandingRoutes);

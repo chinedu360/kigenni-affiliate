@@ -6,13 +6,16 @@
 
         <div class="auth-container">
             <ul>
+                <% if (!isAuthenticated) { %>
                     <li><a href="/login">Login</a></li>
-                    <li><a href="/signup">register</a></li> 
+                    <li><a href="/signup">register</a></li>
+                <% } else { %> 
                     <li>
                         <form action="/logout" method="POST">
                             <button type="submit">Logout</button>
                         </form>
                     </li>
+                <% } %>
             </ul>
         </div>
     </nav>
