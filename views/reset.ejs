@@ -24,23 +24,16 @@
     </header>
 
     <section class="section-form">
-        <h2>Jion the kegenni Affiliate</h2>
-        <form action="/login" method="POST" autocomplete="on">
+        <h2>Reset Password</h2>
+        <form action="/reset" method="POST" autocomplete="on">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" required>
-
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
-
             <p>
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                <button type="submit" >Login</button>
+                <button type="submit" >Reset Password</button>
             </p>
         </form>
         <p class="haves">Don't have an account?<span><a href="/signup">Register</a></span></p>
-        <div class="haves">
-            <a href="/reset">Reset Password</a></span></p>
-        </div>
     </section>
 </body>
 </html>

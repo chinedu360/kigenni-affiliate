@@ -40,7 +40,13 @@ app.use(session ({
 }))
 
 //initalialse csrf after session is crseated bcos it would use it
-/* app.use(csrfProtection); */
+app.use(csrfProtection);
+
+/* app.use((req, res, next) => {
+    res.locals.isAuthenticated = req.session.isLoggedIn;
+    res.locals.csrfToken = req.csrfToken();
+    next();
+}) */
 
 app.use(dashboardRoutes);
 app.use(affiliateLandingRoutes);
