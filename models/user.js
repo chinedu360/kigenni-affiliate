@@ -15,6 +15,11 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+/*     userId: {
+        type: Schema.Types.$oid,
+        required: true,
+        ref: 'User'
+    }, */
     resetToken: String,
     resetTokenExpiration: Date,
 }) 

@@ -17,8 +17,8 @@ const getNestedObject = (nestedObj,pathArr) => {
 }
 
 //pass in mlab object structure as array element
-const _id = getNestedObject(User.collections, ['collections', '_id', '$oid'])
-console.log(_id)
+/* const _id = getNestedObject(User.collections, ['collections', '_id', '$oid'])
+console.log(_id) */
 
 
 /* console.log(User.collections.users); */
@@ -61,7 +61,7 @@ exports.postSignup = (req, res, next) => {
         if (userDoc) {
             return res.redirect('/signup')
         }
-        return bcrypt.hash(password, 8)
+        return bcrypt.hash(password, 12)
         .then(hashedPassword => {
             const user = new User({
                 name: name,
@@ -160,10 +160,11 @@ exports.postReset = (req, res, next) => {
                 <p>if you did not make this request do not click the link</p>
 
                 <p>The link expires in 1 hour</p>
+                <p>click the <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.
                 
-                <p>click the <a href="https://kigenni-affiliate.herokuapp.com/reset/${token}">link</a> to set a new password.
             `
         })/* https://kigenni-affiliate.herokuapp.com/ */
+        {/* <p>click the <a href="https://kigenni-affiliate.herokuapp.com/reset/${token}">link</a> to set a new password.//prod */}
     })
     .catch(err => {
         console.log(err)
@@ -195,15 +196,19 @@ exports.postNewPassword = (req, res, next) => {
     const userId = req.body.userId;
     const passwordToken = req.body.passwordToken;
     let resetUser;
-    let user;
 
-    User.findOne({resetToken: passwordToken, resetTokenExpiration: {$gt: Date.now()}, 
-    _id: userId
-})
+    User.findOne(
+        
+        {
+        resetToken: passwordToken, 
+        resetTokenExpiration: {$gt: Date.now()}, 
+        
+        /* _id: userId */
+    })
     .then(user => {
         resetUser = user;
-        return bcrypt.hash(newPassword, 8)
-    })
+        return bcrypt.hash(newPassword, 12)
+    }) 
     .then(hashedPassword => {
         resetUser.password = hashedPassword;
         resetUser.resetToken = undefined;
@@ -212,14 +217,14 @@ exports.postNewPassword = (req, res, next) => {
     })
     .then(result => {
         res.redirect('/login')
-        transporter.sendMail({
+/*         transporter.sendMail({
             to: req.body.email,
             from: 'chinedu@kigenni.com',
             subject: 'Password Reset confirmed',
             html: `
                 <p>Hooray!!! You've reset your password</p>
-            `
-        })
+            ` 
+        }) */
     })
     .catch(err => {
         console.log(err);
