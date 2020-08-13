@@ -160,9 +160,10 @@ exports.postReset = (req, res, next) => {
                 <p>if you did not make this request do not click the link</p>
 
                 <p>The link expires in 1 hour</p>
-                <p>click the <a href="http://localhost:3000/reset/${token}">link</a> to set a new password.
+                
+                <p>click the <a href="https://kigenni-affiliate.herokuapp.com/reset/${token}">link</a> to set a new password.
             `
-        })
+        })/* https://kigenni-affiliate.herokuapp.com/ */
     })
     .catch(err => {
         console.log(err)
