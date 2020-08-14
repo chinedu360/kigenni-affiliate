@@ -4,24 +4,26 @@ const t = require('typy');
 const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const sendgridTransport = require('nodemailer-sendgrid-transport');
+const eo = require('email-octopus');
 
 const User = require('../models/user');
 
-/* const _id = t(User, '_id.$oid');
-console.log(_id) */
-//script for accessing nested object from mlab
-const getNestedObject = (nestedObj,pathArr) => {
-    return pathArr.reduce((obj, key) => 
-        (obj && obj[key] !== 'null') ? obj[key] : null, nestedObj
-    )
-}
+const apiKey = 'e21e3343-d0f1-44c4-bb20-1f790ed46614';
+const username = 'Kigenni';
+const password = 'Kigenni1234';
+const emailOctopus = new eo.EmailOctopus(apiKey, username, password);
 
-//pass in mlab object structure as array element
-/* const _id = getNestedObject(User.collections, ['collections', '_id', '$oid'])
-console.log(_id) */
+const listId = 'fa2a43de-ddc3-11ea-a3d0-06b4694bee2a'
 
+/* const options = {
+    email_address: req.body.email,
+    first_name: req.body.name,
+}; */
 
-/* console.log(User.collections.users); */
+/* emailOctopus.lists.contacts.create(listId, options).then(function() {
+    console.log('contact added');
+}); */
+
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
         api_key: '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'
@@ -72,6 +74,18 @@ exports.postSignup = (req, res, next) => {
         })
         .then(result => {
             res.redirect('/login')
+
+            const options = {
+                email_address: email,
+                first_name: name,
+            };
+
+            emailOctopus.lists.contacts.create(listId, options).then(function() {
+                console.log('contact added');
+            }).catch(err => {
+                console.log(err)  
+            });
+
             return transporter.sendMail({
                 to: email,
                 from: 'chinedu@kigenni.com',
