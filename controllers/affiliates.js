@@ -1,6 +1,8 @@
-const User = require('../models/user')
+const User = require('../models/user');
 
 exports.getAffiliate = (req, res, next) => {
+
+    
     res.render('affiliate', 
         {pageTitle: 'Kigenni Affiliate',
         isAuthenticated: req.session.isLoggedIn,
@@ -14,17 +16,20 @@ exports.getDashboard = (req, res, next) => {
 
     User.findOne()
     .then(user => {
-        const name = req.session.user.name;
+        const firstName = req.session.user.firstName;
+        const rf = req.session.user.referralCode
+        console.log(rf)
         if(!req.session.isLoggedIn) {
             return res.redirect('/login')
         }
         
         res.render('dashboard', {
             pageTitle: 'Dashboard', 
-            name: name,
+            firstName: firstName,
             path: '/dashboard',
             isAuthenticated: req.session.isLoggedIn,
             csrfToken: req.csrfToken(),
+            referralCode: rf
         });
     })
     .catch(err => {

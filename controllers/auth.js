@@ -15,14 +15,10 @@ const emailOctopus = new eo.EmailOctopus(apiKey, username, password);
 
 const listId = 'fa2a43de-ddc3-11ea-a3d0-06b4694bee2a'
 
-/* const options = {
-    email_address: req.body.email,
-    first_name: req.body.name,
-}; */
+const rfC = require('referral-codes');
 
-/* emailOctopus.lists.contacts.create(listId, options).then(function() {
-    console.log('contact added');
-}); */
+/* console.log(rf); */
+
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
@@ -54,7 +50,8 @@ exports.getSignup = (req, res, next) => {
 };
 
 exports.postSignup = (req, res, next) => {
-    const name = req.body.name;
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
     const email = req.body.email;
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
@@ -65,10 +62,17 @@ exports.postSignup = (req, res, next) => {
         }
         return bcrypt.hash(password, 12)
         .then(hashedPassword => {
+            const rf = rfC.generate({
+                prefix: `${firstName}-`,  
+                length: 4,
+                count: 1
+            })
             const user = new User({
-                name: name,
+                firstName: firstName,
+                lastName: lastName,
                 email: email,
-                password: hashedPassword
+                password: hashedPassword,
+                referralCode: rf.toString()
             });
             return user.save();
         })
@@ -77,7 +81,8 @@ exports.postSignup = (req, res, next) => {
 
             const options = {
                 email_address: email,
-                first_name: name,
+                first_name: firstName,
+                last_name: lastName
             };
 
             emailOctopus.lists.contacts.create(listId, options).then(function() {
@@ -90,7 +95,12 @@ exports.postSignup = (req, res, next) => {
                 to: email,
                 from: 'chinedu@kigenni.com',
                 subject: 'Signup Succeded',
-                html: `<h1>Hello ${name}</h1> <br> <h4>You successfully signed up!</h4>`
+                html: `<h3>Hello ${firstName}</h3> 
+
+                       <p>You successfully signed up!</p>
+
+                       <p>Login <a herf="https://kigenni-affiliate.herokuapp.com/login">here</a> to get your referral code!
+                `
             })
             .catch(err => {
                 console.log(err); 
