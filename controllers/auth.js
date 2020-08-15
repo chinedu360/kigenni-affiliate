@@ -99,7 +99,7 @@ exports.postSignup = (req, res, next) => {
 
                        <p>You successfully signed up!</p>
 
-                       <p>Login <a herf="https://kigenni-affiliate.herokuapp.com/login">here</a> to get your referral code!
+                       <p>Login <a href="https://kigenni-affiliate.herokuapp.com/login">here</a> to get your referral code!
                 `
             })
             .catch(err => {
