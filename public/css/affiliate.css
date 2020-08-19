@@ -13,7 +13,8 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: #2f70a5;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(47,112,165,1) 52%, rgba(0,212,255,1) 100%);
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -45,7 +46,7 @@
 .auth-container li {
     margin: 1rem;
     list-style-type: none;
-    background-color: #3d9be9;
+    background-color: #2592ec;
     padding: 10px 16px;
 }
 
@@ -60,7 +61,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2f70a5;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(47,112,165,1) 52%, rgba(0,212,255,1) 100%);
     flex-direction: column;
     height: 70vh;
 
