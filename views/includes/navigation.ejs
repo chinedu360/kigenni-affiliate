@@ -1,19 +1,20 @@
 <header class="header">
     <nav class="navbar">
         <div class="logo-container">
-            <p class="logo-paragraph" href="#" >KIGENNI </p>
+            <p class="logo-paragraph" href="/" >KIGENNI </p>
         </div>
 
         <div class="auth-container">
             <ul>
                 <% if (!isAuthenticated) { %>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/login">Login</a></li>
                     <li><a href="/signup">register</a></li>
                 <% } else { %> 
                     <li>
                         <form action="/logout" method="POST">
                             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                            <button type="submit">Logout</button>
+                            <button style="border: none; background: none; color: white; cursor: pointer; outline: none;" type="submit">Logout</button>
                         </form>
                     </li>
                 <% } %>

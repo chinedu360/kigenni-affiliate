@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
 }
 
 .header {
@@ -11,7 +13,7 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    background-color: #2f70a5;
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -23,10 +25,10 @@
 }
 
 .logo-paragraph {
-    color:#3d9be9; 
+    color:white; 
     text-align:left; 
     font-size:24pt;
-    font-family:'Source Code Pro', monospace; 
+    font-family: 'Montserrat', sans-serif;
     padding-left: 15px;
     top: -10%;  
 }
@@ -58,9 +60,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: tomato;
+    background-color: #2f70a5;
     flex-direction: column;
-    height: 60vh;
+    height: 70vh;
 
 }
 
@@ -79,17 +81,17 @@
     margin-bottom: 3rem;
     text-transform: uppercase;
     color: white;
-    font-size: 3rem;
+    font-size: 4rem;
     text-align: center;
 }
 
 /* section */
 
 .section-text {
-    color: black;
+    color: #2f70a5;
     padding-bottom: 10px;
-    border-bottom: black 2px solid;
-    max-width: 450px;
+    border-bottom: #2f70a5 2px solid;
+    max-width: 650px;
     margin: 2rem auto;
 }
 
@@ -122,13 +124,13 @@
 
 .section-works_box-containers i {
     font-size: 150px;
-    color: tomato/* #3d9be9 */;
+    color: #2f70a5/* #3d9be9 */;
 }
 
 /* SOCIAL */
 
 .section-social {
-    background-color: rgb(245, 244, 244);
+    background-color: #2f70a5;
     height: 50vh;
     display: flex;
     flex-direction: column;
@@ -137,7 +139,7 @@
 }
 
 .section-social-text {
-    color: black;
+    color: white;
     font-size: 35px;
     /* padding-top: 2rem; */
 }
@@ -157,7 +159,7 @@
     display: flex;
     margin-top: 4rem;
     font-size: 4rem;
-    color: #3d9be9;
+    color: #9ccef7;
     cursor: pointer;
 }
 
@@ -166,5 +168,29 @@
 }
 
 .section-social_box-containers:hover {
-    color: #2f70a5;
+    color: white;
+}
+
+.hero-paragraph {
+    max-width: 800px;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.border {
+    border: 1px solid #3d9be9;
+    padding: 15px;
+    border-radius: 3px;
+}
+
+.border p {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.p {
+    max-width: 250px;
+    font-size: 5px;
 }

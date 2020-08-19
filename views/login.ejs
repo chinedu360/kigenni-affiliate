@@ -16,6 +16,7 @@
 
             <div class="auth-container">
                 <ul>
+                    <li><a href="/">Home</a></li>
                     <li><a href="/login">Login</a></li>
                     <li><a href="/signup">register</a></li>
                 </ul>
@@ -24,22 +25,25 @@
     </header>
 
     <section class="section-form">
-        <h2>Jion the kegenni Affiliate</h2>
-        <form action="/login" method="POST" autocomplete="on">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" required>
-
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
-
-            <p>
-                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                <button type="submit" >Login</button>
-            </p>
-        </form>
-        <p class="haves">Don't have an account?<span><a href="/signup">Register</a></span></p>
-        <div class="haves">
-            <a href="/reset">Reset Password</a></span></p>
+        <h2>kigenni</h2>
+        <div class="border">
+            <p>Sign-In</p>
+            <form action="/login" method="POST" autocomplete="on">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+    
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+    
+                <p>
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button type="submit" >Login</button>
+                </p>
+            </form>
+            <p class="haves">Don't have an account?<span><a href="/signup">Register</a></span></p>
+            <div class="haves">
+                <a href="/reset">Reset Password</a></span></p>
+            </div>
         </div>
     </section>
 </body>
