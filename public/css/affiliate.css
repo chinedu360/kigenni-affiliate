@@ -81,7 +81,7 @@
     margin-bottom: 3rem;
     text-transform: uppercase;
     color: white;
-    font-size: 4rem;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -91,7 +91,7 @@
     color: #2f70a5;
     padding-bottom: 10px;
     border-bottom: #2f70a5 2px solid;
-    max-width: 650px;
+    max-width: 350px;
     margin: 2rem auto;
 }
 
@@ -192,4 +192,28 @@
 
 .border-paragraph {
     font-size: 12px;
+}
+
+.section-faq {
+    /* font-size: 30px; */
+    margin-top: 3rem;
+    color: black;
+    font-weight: 800;
+    margin-bottom: -1rem;
+}
+.section-faq_box {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.section-faq_box h3 {
+    margin: 2rem auto;
+    font-size: 30px;
+}
+
+.section-faq_text {
+    font-size: 30px;
 }
