@@ -200,6 +200,8 @@
     color: black;
     font-weight: 800;
     margin-bottom: -1rem;
+    background-color: rgb(235, 235, 235);
+    padding: 15px 0;
 }
 .section-faq_box {
     display: flex;
