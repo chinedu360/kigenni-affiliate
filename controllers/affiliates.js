@@ -6,7 +6,7 @@ exports.getAffiliate = (req, res, next) => {
     res.render('affiliate', 
         {pageTitle: 'Kigenni Affiliate',
         isAuthenticated: req.session.isLoggedIn,
-        csrfToken: req.csrfToken(),
+        csrfToken: req.csrfToken(),  
         path: '/'
     })
     /* res.sendFile(path.join(__dirname, '../', 'views', 'affiliate.html'), {pageTitle: 'affiliate'}); */

@@ -93,7 +93,7 @@ exports.postSignup = (req, res, next) => {
 
             return transporter.sendMail({
                 to: email,
-                from: 'chinedu@kigenni.com',
+                from: 'no-reply@kigenni.com',
                 subject: 'Signup Succeded',
                 html: `<h3>Hello ${firstName}</h3> 
 
@@ -178,7 +178,7 @@ exports.postReset = (req, res, next) => {
         res.redirect('/');
         transporter.sendMail({
             to: req.body.email,
-            from: 'chinedu@kigenni.com',
+            from: 'no-reply@kigenni.com',
             subject: 'Password Reset',
             html: `
                 <p>if you did not make this request do not click the link</p>
