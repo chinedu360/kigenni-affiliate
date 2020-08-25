@@ -93,13 +93,26 @@ exports.postSignup = (req, res, next) => {
 
             return transporter.sendMail({
                 to: email,
-                from: 'no-reply@kigenni.com',
-                subject: 'Signup Succeded',
-                html: `<h3>Hello ${firstName}</h3> 
+                from: 'Dare' + 'no-reply@kigenni.com',
+                replyTo: 'kap@kigenni.com',
+                subject: 'Welcome To KAP (Kigenni Affiliate Program)',
+                html: `
+                Hello ${firstName},
 
-                       <p>You successfully signed up!</p>
+               <p>Welcome to the KAP, where there is no KAP on your earnings!</p>
 
-                       <p>Login <a href="https://kigenni-affiliate.herokuapp.com/login">here</a> to get your referral code!
+
+                <p>You've just signed up for an account on the Kigenni Affiliate Platform (KAP). You're almost done! Just click here to confirm your email address and get your affiliate code.</p> 
+                
+                
+                <p>Should you need more information about the Kigenni Affiliate Program (KAP), kindly contact the KAP team with the email address provided below.</p>
+                
+                
+                <p>Sincerely,
+                
+                KAP Support
+                
+                <a href="mailto:kap@kigenni.com ">Email The Support Team</a></p>
                 `
             })
             .catch(err => {
@@ -179,13 +192,25 @@ exports.postReset = (req, res, next) => {
         transporter.sendMail({
             to: req.body.email,
             from: 'no-reply@kigenni.com',
-            subject: 'Password Reset',
+            replyTo: 'chinedu@kigenni.com',
+            subject: 'Password Reset for Kigenni Affiliate Platform (KAP)',
             html: `
-                <p>if you did not make this request do not click the link</p>
+            Hello ${req.body.firstName},
 
-                <p>The link expires in 1 hour</p>
-                <p>click the <a href="https://kigenni-affiliate.herokuapp.com/reset/${token}">link</a> to set a new password.</p>
-                
+            <p>You are receiving this email because you have forgotten your 
+            password and want to get back into your Kigenni Affiliate Platform account. 
+            To reset your password click this link. Link expires in an hour. 
+
+            <p>If you did not request this password reset or you believe an unauthorised person has 
+            accessed your account.</p> 
+
+            <p>if you did not make this request do not click the link.</p>
+
+            <p>click the <a href="https://kigenni-affiliate.herokuapp.com/reset/${token}">link</a> to set a new password.</p>
+            Sincerely,
+            
+            KAP Support
+            
             `
         })/* https://kigenni-affiliate.herokuapp.com/ */
         {/* <p>click the <a href="https://kigenni-affiliate.herokuapp.com/reset/${token}">link</a> to set a new password.//prod */}
