@@ -98,15 +98,15 @@ exports.postSignup = (req, res, next) => {
                 html: `
                 Hello ${firstName},
 
-                Welcome to the KAP, where there is no KAP on your earnings!
+                <p>Welcome to the KAP, where there is no KAP on your earnings!</p>
 
                 <p>You've just signed up for an account on the Kigenni Affiliate Platform (KAP). You're almost done! Just click the <a href="https://kigenni-affiliate.herokuapp.com/login">link</a> to confirm your email address, login into yout account and get your affiliate code.</p> 
 
                 <p>Should you need more information about the Kigenni Affiliate Program (KAP), kindly contact the KAP team with the email address provided below.</p>
                 
-                Sincerely,
+                <p>Sincerely,</p>
                 
-                KAP Support
+                <p>KAP Support</p>
                 
                 kap@kigenni.com
                 `
