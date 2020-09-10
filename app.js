@@ -12,10 +12,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const MONGO_URI = 'mongodb://kigenni-aff:kigenni-7218@ds149875.mlab.com:49875/kigenni-aff'
+const MONGO_URI2 = 'mongodb://Rigutsmile:Rigutsmile@ds135574.mlab.com:35574/writing'
 
 const app = express();
 const store = new MongoDBStore({
     uri: MONGO_URI, 
+    uri2: MONGO_URI2,
     collection: 'sessions'
 });
 
@@ -55,7 +57,7 @@ app.use(authRoutes)
 mongoose.connect(MONGO_URI, { 
         useNewUrlParser: true, 
         useUnifiedTopology: true 
-    })
+    }) 
     .then(result => {
 
     const server = http.createServer(app);
@@ -65,4 +67,31 @@ mongoose.connect(MONGO_URI, {
 }).catch(err => {
     console.log(err);
 })
+
+/* mongoose.createConnection(MONGO_URI2, { 
+        useNewUrlParser: true, 
+        useUnifiedTopology: true 
+    }) 
+    .then(entry => {
+
+        entry.collection('entries').findOne()
+    .then(results => {
+        console.log(results)
+    })
+    .catch(err => console.log(err))
+ */
+/*         const db = entry.db('entries')
+        
+
+        app.use()
+        app.get()
+        app.post()
+        app.listen() */
+/*     const server = http.createServer(app);
+    server.listen(PORT); */
+
+/*     console.log("connected to the DB 2")
+}).catch(err => {
+    console.log(err);
+}) */
 
